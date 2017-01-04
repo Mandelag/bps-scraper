@@ -24,7 +24,7 @@ import java.util.regex.Matcher;
  */
 public class ScraperUtil {
 
-    static String USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36";
+    public static String USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36";
 
     public static ArrayList<String[]> scrape(String regex, String input) throws IOException {
         ArrayList<String[]> result = new ArrayList<>();        
@@ -42,7 +42,7 @@ public class ScraperUtil {
         return result;
     }
 
-    private static String getString(URL url) throws IOException {
+    public static String getString(URL url) throws IOException {
         URLConnection page = url.openConnection();
         page.addRequestProperty("User-Agent", USER_AGENT);
         InputStream is = page.getInputStream();
@@ -57,7 +57,7 @@ public class ScraperUtil {
         return result;
     }
 
-    private static void streamCopier(InputStream is, OutputStream os) throws IOException {
+    public static void streamCopier(InputStream is, OutputStream os) throws IOException {
         int b = 0;
         while((b = is.read()) >= 0 ) {
             os.write(b);
